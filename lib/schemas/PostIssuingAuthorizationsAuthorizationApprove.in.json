@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "held_amount": {
+                    "description": "If the authorization's `is_held_amount_controllable` property is `true`, you may provide this value to control how much to hold for the authorization.",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "operator_account": {
+            "required": false,
+            "type": "string"
+        },
+        "reader": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

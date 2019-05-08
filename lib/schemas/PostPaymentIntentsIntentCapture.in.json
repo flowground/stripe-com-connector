@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "intent": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "amount_to_capture": {
+                    "description": "The amount to capture from the PaymentIntent, which must be less than or equal to the original amount. Any additional amount will be automatically refunded. Defaults to the full `amount_capturable` if not provided.",
+                    "type": "integer"
+                },
+                "application_fee_amount": {
+                    "description": "The amount of the application fee (if any) that will be applied to the payment and transferred to the\napplication owner's Stripe account. To use an application fee, the\nrequest must be made on behalf of another account, using the\n`Stripe-Account` header or an OAuth key. For more\ninformation, see the PaymentIntents [Connect usage guide](https://stripe.com/docs/payments/payment-intents/usage#connect).",
+                    "type": "integer"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

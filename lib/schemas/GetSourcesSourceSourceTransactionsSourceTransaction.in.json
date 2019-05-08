@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "source": {
+            "required": true,
+            "type": "string"
+        },
+        "source_transaction": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

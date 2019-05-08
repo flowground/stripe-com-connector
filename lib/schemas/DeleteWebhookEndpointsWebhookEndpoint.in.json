@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "webhook_endpoint": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

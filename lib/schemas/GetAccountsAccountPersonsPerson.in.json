@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "account": {
+            "required": true,
+            "type": "string"
+        },
+        "person": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

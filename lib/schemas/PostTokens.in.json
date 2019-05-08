@@ -1,0 +1,366 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "account": {
+                    "description": "Information for the account this token will represent.",
+                    "properties": {
+                        "business_type": {
+                            "type": "string"
+                        },
+                        "company": {
+                            "properties": {
+                                "address": {
+                                    "properties": {
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "address_specs",
+                                    "type": "object"
+                                },
+                                "address_kana": {
+                                    "properties": {
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "japan_address_kana_specs",
+                                    "type": "object"
+                                },
+                                "address_kanji": {
+                                    "properties": {
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "japan_address_kanji_specs",
+                                    "type": "object"
+                                },
+                                "directors_provided": {
+                                    "type": "boolean"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "name_kana": {
+                                    "type": "string"
+                                },
+                                "name_kanji": {
+                                    "type": "string"
+                                },
+                                "owners_provided": {
+                                    "type": "boolean"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "tax_id": {
+                                    "type": "string"
+                                },
+                                "tax_id_registrar": {
+                                    "type": "string"
+                                },
+                                "vat_id": {
+                                    "type": "string"
+                                }
+                            },
+                            "title": "company_specs",
+                            "type": "object"
+                        },
+                        "individual": {
+                            "properties": {
+                                "address": {
+                                    "properties": {
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "address_specs",
+                                    "type": "object"
+                                },
+                                "address_kana": {
+                                    "properties": {
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "japan_address_kana_specs",
+                                    "type": "object"
+                                },
+                                "address_kanji": {
+                                    "properties": {
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        },
+                                        "town": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "japan_address_kanji_specs",
+                                    "type": "object"
+                                },
+                                "dob": {
+                                    "properties": {
+                                        "day": {
+                                            "type": "integer"
+                                        },
+                                        "month": {
+                                            "type": "integer"
+                                        },
+                                        "year": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "day",
+                                        "month",
+                                        "year"
+                                    ],
+                                    "title": "date_of_birth_specs",
+                                    "type": "object"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "first_name": {
+                                    "type": "string"
+                                },
+                                "first_name_kana": {
+                                    "type": "string"
+                                },
+                                "first_name_kanji": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                },
+                                "id_number": {
+                                    "type": "string"
+                                },
+                                "last_name": {
+                                    "type": "string"
+                                },
+                                "last_name_kana": {
+                                    "type": "string"
+                                },
+                                "last_name_kanji": {
+                                    "type": "string"
+                                },
+                                "maiden_name": {
+                                    "type": "string"
+                                },
+                                "metadata": {
+                                    "type": "object"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "ssn_last_4": {
+                                    "type": "string"
+                                },
+                                "verification": {
+                                    "properties": {
+                                        "document": {
+                                            "properties": {
+                                                "back": {
+                                                    "type": "string"
+                                                },
+                                                "front": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "person_verification_document_specs",
+                                            "type": "object"
+                                        }
+                                    },
+                                    "title": "person_verification_specs",
+                                    "type": "object"
+                                }
+                            },
+                            "title": "individual_specs",
+                            "type": "object"
+                        },
+                        "tos_shown_and_accepted": {
+                            "type": "boolean"
+                        }
+                    },
+                    "title": "connect_js_account_token_specs",
+                    "type": "object"
+                },
+                "amount": {
+                    "type": "integer"
+                },
+                "bank_account": {
+                    "description": "The bank account this token will represent."
+                },
+                "card": {},
+                "currency": {
+                    "type": "string"
+                },
+                "customer": {
+                    "description": "The customer (owned by the application's account) for which to create a token. For use only with [Stripe Connect](https://stripe.com/docs/connect). Also, this can be used only with an [OAuth access token](https://stripe.com/docs/connect/standard-accounts) or [Stripe-Account header](https://stripe.com/docs/connect/authentication). For more details, see [Shared Customers](https://stripe.com/docs/connect/shared-customers).",
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "external_id": {
+                    "type": "string"
+                },
+                "iovation_blackbox": {
+                    "type": "string"
+                },
+                "ip": {
+                    "type": "string"
+                },
+                "payment_user_agent": {
+                    "type": "string"
+                },
+                "pii": {
+                    "properties": {
+                        "id_number": {
+                            "type": "string"
+                        },
+                        "ssn_last_4": {
+                            "type": "string"
+                        },
+                        "tax_id": {
+                            "type": "string"
+                        }
+                    },
+                    "title": "new_pii_token_specs",
+                    "type": "object"
+                },
+                "recipient": {
+                    "type": "string"
+                },
+                "referrer": {
+                    "type": "string"
+                },
+                "request_id": {
+                    "type": "string"
+                },
+                "user_agent": {
+                    "type": "string"
+                },
+                "validation_type": {
+                    "enum": [
+                        "amount",
+                        "card",
+                        "none"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

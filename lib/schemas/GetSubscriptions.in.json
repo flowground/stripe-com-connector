@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "billing": {
+            "required": false,
+            "type": "string"
+        },
+        "created": {
+            "required": false,
+            "type": "integer"
+        },
+        "customer": {
+            "required": false,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "plan": {
+            "required": false,
+            "type": "string"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

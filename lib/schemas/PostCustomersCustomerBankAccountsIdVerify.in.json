@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "customer": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "amounts": {
+                    "description": "Two positive integers, in *cents*, equal to the values of the microdeposits sent to the bank account.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "verification_method": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

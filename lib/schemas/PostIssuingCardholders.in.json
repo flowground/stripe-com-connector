@@ -1,0 +1,100 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "billing": {
+                    "description": "The cardholder's billing address.",
+                    "properties": {
+                        "address": {
+                            "properties": {
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "city",
+                                "country",
+                                "line1",
+                                "postal_code"
+                            ],
+                            "title": "required_address",
+                            "type": "object"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "address"
+                    ],
+                    "title": "address_param",
+                    "type": "object"
+                },
+                "email": {
+                    "description": "The cardholder's email address.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "is_default": {
+                    "description": "Specifies whether to set this as the default cardholder.",
+                    "type": "boolean"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The cardholder's name. This will be printed on cards issued to them.",
+                    "type": "string"
+                },
+                "phone_number": {
+                    "description": "The cardholder's phone number. This will be transformed to [E.164](https://en.wikipedia.org/wiki/E.164) if it is not provided in that format already.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Specifies whether to permit authorizations on this cardholder's cards. Possible values are `active` or `inactive`.",
+                    "enum": [
+                        "active",
+                        "inactive"
+                    ],
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of cardholder. Possible values are `individual` or `business_entity`.",
+                    "enum": [
+                        "business_entity",
+                        "individual"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "billing",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}

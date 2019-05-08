@@ -1,0 +1,57 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "file": {
+                    "description": "A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the `multipart/form-data` protocol).",
+                    "type": "string"
+                },
+                "file_link_data": {
+                    "description": "Optional parameters to automatically create a [file link](#file_links) for the newly created file.",
+                    "properties": {
+                        "create": {
+                            "type": "boolean"
+                        },
+                        "expires_at": {
+                            "type": "integer"
+                        },
+                        "metadata": {
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "create"
+                    ],
+                    "title": "file_link_creation_params",
+                    "type": "object"
+                },
+                "purpose": {
+                    "description": "The purpose of the uploaded file. Possible values are `business_icon`, `business_logo`, `customer_signature`, `dispute_evidence`, `identity_document`, `pci_document`, or `tax_document_user_upload`",
+                    "enum": [
+                        "business_icon",
+                        "business_logo",
+                        "customer_signature",
+                        "dispute_evidence",
+                        "identity_document",
+                        "pci_document",
+                        "tax_document_user_upload"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "file",
+                "purpose"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "plan": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "active": {
+                    "description": "Whether the plan is currently available for new subscriptions.",
+                    "type": "boolean"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a plan object. It can be useful for storing additional information about the plan in a structured format.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The plan name. Customers may see this value on Stripe-generated invoices and receipts.",
+                    "type": "string"
+                },
+                "nickname": {
+                    "description": "A brief description of the plan, hidden from customers.",
+                    "type": "string"
+                },
+                "product": {
+                    "description": "The product the plan belongs to. Note that after updating, statement descriptors and line items of the plan in active subscriptions will be affected.",
+                    "type": "string"
+                },
+                "statement_descriptor": {
+                    "description": "An arbitrary string to be displayed on your customer's credit card statement. This may be up to 22 characters. The statement description may not include <>\"' characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. While most banks display this information consistently, some may display it incorrectly or not at all. It must contain at least one letter.",
+                    "type": "string"
+                },
+                "trial_period_days": {
+                    "description": "Default number of trial days when subscribing a customer to this plan using [`trial_from_plan=true`](https://stripe.com/docs/api#create_subscription-trial_from_plan).",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

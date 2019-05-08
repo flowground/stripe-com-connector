@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "address": {
+                    "description": "The full address of the location.",
+                    "properties": {
+                        "city": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        },
+                        "line1": {
+                            "type": "string"
+                        },
+                        "line2": {
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "city",
+                        "country",
+                        "line1",
+                        "postal_code"
+                    ],
+                    "title": "required_address",
+                    "type": "object"
+                },
+                "display_name": {
+                    "description": "A name for the location.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "operator_account": {
+                    "description": "To group objects on your platform account by connected account, set this parameter to the connected account operating your application.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "address",
+                "display_name"
+            ],
+            "type": "object"
+        }
+    }
+}

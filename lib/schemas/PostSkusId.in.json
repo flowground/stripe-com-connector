@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "active": {
+                    "description": "Whether this SKU is available for purchase.",
+                    "type": "boolean"
+                },
+                "attributes": {
+                    "description": "A dictionary of attributes and values for the attributes defined by the product. When specified, `attributes` will partially update the existing attributes dictionary on the product, with the postcondition that a value must be present for each attribute key on the product.",
+                    "type": "object"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "image": {
+                    "description": "The URL of an image for this SKU, meant to be displayable to the customer.",
+                    "type": "string"
+                },
+                "inventory": {
+                    "description": "Description of the SKU's inventory.",
+                    "properties": {
+                        "quantity": {
+                            "type": "integer"
+                        },
+                        "type": {
+                            "enum": [
+                                "bucket",
+                                "finite",
+                                "infinite"
+                            ],
+                            "type": "string"
+                        },
+                        "value": {
+                            "enum": [
+                                "",
+                                "in_stock",
+                                "limited",
+                                "out_of_stock"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "title": "inventory_update_specs",
+                    "type": "object"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a SKU object. It can be useful for storing additional information about the SKU in a structured format.",
+                    "type": "object"
+                },
+                "package_dimensions": {
+                    "description": "The dimensions of this SKU for shipping purposes.",
+                    "properties": {
+                        "height": {
+                            "type": "number"
+                        },
+                        "length": {
+                            "type": "number"
+                        },
+                        "weight": {
+                            "type": "number"
+                        },
+                        "width": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "height",
+                        "length",
+                        "weight",
+                        "width"
+                    ],
+                    "title": "package_dimensions_specs",
+                    "type": "object"
+                },
+                "price": {
+                    "description": "The cost of the item as a positive integer in the smallest currency unit (that is, 100 cents to charge $1.00, or 100 to charge ¥100, Japanese Yen being a zero-decimal currency).",
+                    "type": "integer"
+                },
+                "product": {
+                    "description": "The ID of the product that this SKU should belong to. The product must exist, have the same set of attribute names as the SKU's current product, and be of type `good`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

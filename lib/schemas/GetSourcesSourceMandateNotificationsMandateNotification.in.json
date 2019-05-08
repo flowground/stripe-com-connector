@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "mandate_notification": {
+            "required": true,
+            "type": "string"
+        },
+        "source": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

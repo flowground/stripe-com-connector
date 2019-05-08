@@ -1,0 +1,230 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "Amount associated with the source. This is the amount for which the source will be chargeable once ready. Required for `single_use` sources.",
+                    "type": "integer"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) associated with the source. This is the currency for which the source will be chargeable once ready.",
+                    "type": "string"
+                },
+                "customer": {
+                    "description": "The `Customer` to whom the original source is attached to. Must be set when the original source is not a `Source` (e.g., `Card`).",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "flow": {
+                    "description": "The authentication `flow` of the source to create. `flow` is one of `redirect`, `receiver`, `code_verification`, `none`. It is generally inferred unless a type supports multiple flows.",
+                    "enum": [
+                        "code_verification",
+                        "none",
+                        "receiver",
+                        "redirect"
+                    ],
+                    "type": "string"
+                },
+                "mandate": {
+                    "description": "Information about a mandate possibility attached to a source object (generally for bank debits) as well as its acceptance status.",
+                    "properties": {
+                        "acceptance": {
+                            "properties": {
+                                "date": {
+                                    "type": "integer"
+                                },
+                                "ip": {
+                                    "type": "string"
+                                },
+                                "offline": {
+                                    "properties": {
+                                        "contact_email": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "contact_email"
+                                    ],
+                                    "title": "mandate_offline_acceptance_params",
+                                    "type": "object"
+                                },
+                                "online": {
+                                    "properties": {
+                                        "date": {
+                                            "type": "integer"
+                                        },
+                                        "ip": {
+                                            "type": "string"
+                                        },
+                                        "user_agent": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "date",
+                                        "ip",
+                                        "user_agent"
+                                    ],
+                                    "title": "mandate_online_acceptance_params",
+                                    "type": "object"
+                                },
+                                "status": {
+                                    "enum": [
+                                        "accepted",
+                                        "pending",
+                                        "refused",
+                                        "revoked"
+                                    ],
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "enum": [
+                                        "offline",
+                                        "online"
+                                    ],
+                                    "type": "string"
+                                },
+                                "user_agent": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ],
+                            "title": "mandate_acceptance_params",
+                            "type": "object"
+                        },
+                        "amount": {},
+                        "currency": {
+                            "type": "string"
+                        },
+                        "interval": {
+                            "enum": [
+                                "one_time",
+                                "scheduled",
+                                "variable"
+                            ],
+                            "type": "string"
+                        },
+                        "notification_method": {
+                            "enum": [
+                                "deprecated_none",
+                                "email",
+                                "manual",
+                                "none",
+                                "stripe_email"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "title": "mandate_params",
+                    "type": "object"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a source object. It can be useful for storing additional information about the source in a structured format.",
+                    "type": "object"
+                },
+                "original_source": {
+                    "description": "The source to share.",
+                    "type": "string"
+                },
+                "owner": {
+                    "description": "Information about the owner of the payment instrument that may be used or required by particular source types.",
+                    "properties": {
+                        "address": {
+                            "properties": {
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            },
+                            "title": "source_address",
+                            "type": "object"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        }
+                    },
+                    "title": "owner",
+                    "type": "object"
+                },
+                "receiver": {
+                    "description": "Optional parameters for the receiver flow. Can be set only if the source is a receiver (`flow` is `receiver`).",
+                    "properties": {
+                        "refund_attributes_method": {
+                            "enum": [
+                                "email",
+                                "manual",
+                                "none"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "title": "receiver_params",
+                    "type": "object"
+                },
+                "redirect": {
+                    "description": "Parameters required for the redirect flow. Required if the source is authenticated by a redirect (`flow` is `redirect`).",
+                    "properties": {
+                        "return_url": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "return_url"
+                    ],
+                    "title": "redirect_params",
+                    "type": "object"
+                },
+                "statement_descriptor": {
+                    "description": "An arbitrary string to be displayed on your customer's statement. As an example, if your website is `RunClub` and the item you're charging for is a race ticket, you may want to specify a `statement_descriptor` of `RunClub 5K race ticket.` While many payment types will display this information, some may not display it at all.",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "An optional token used to create the source. When passed, token properties will override source parameters.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The `type` of the source to create. Required unless `customer` and `original_source` are specified (see the [Shared card Sources](https://stripe.com/docs/sources/connect#shared-card-sources) guide)",
+                    "type": "string"
+                },
+                "usage": {
+                    "description": "Either `reusable` or `single_use`. Whether this source should be reusable or not. Some source types may or may not be reusable by construction, while others may leave the option at creation. If an incompatible value is passed, an error will be returned.",
+                    "enum": [
+                        "reusable",
+                        "single_use"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

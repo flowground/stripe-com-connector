@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "parameters": {
+                    "description": "Parameters specifying how the report should be run. Different Report Types have different required and optional parameters, listed in the [API Access to Reports](https://stripe.com/docs/reporting/statements/api) documentation.",
+                    "properties": {
+                        "connected_account": {
+                            "type": "string"
+                        },
+                        "currency": {
+                            "type": "string"
+                        },
+                        "interval_end": {
+                            "type": "integer"
+                        },
+                        "interval_start": {
+                            "type": "integer"
+                        },
+                        "payout": {
+                            "type": "string"
+                        },
+                        "reporting_category": {
+                            "enum": [
+                                "advance",
+                                "advance_funding",
+                                "charge",
+                                "charge_failure",
+                                "connect_collection_transfer",
+                                "connect_reserved_funds",
+                                "dispute",
+                                "dispute_reversal",
+                                "fee",
+                                "financing_paydown",
+                                "financing_payout",
+                                "financing_payout_reversal",
+                                "issuing_authorization_hold",
+                                "issuing_authorization_release",
+                                "issuing_transaction",
+                                "network_cost",
+                                "other_adjustment",
+                                "partial_capture_reversal",
+                                "payout",
+                                "payout_reversal",
+                                "platform_earning",
+                                "platform_earning_refund",
+                                "refund",
+                                "refund_failure",
+                                "risk_reserved_funds",
+                                "tax",
+                                "topup",
+                                "topup_reversal",
+                                "transfer",
+                                "transfer_reversal"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "title": "run_parameter_specs",
+                    "type": "object"
+                },
+                "report_type": {
+                    "description": "The ID of the [report type](https://stripe.com/docs/reporting/statements/api#report-types) to run, such as `\"balance.summary.1\"`.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "report_type"
+            ],
+            "type": "object"
+        }
+    }
+}

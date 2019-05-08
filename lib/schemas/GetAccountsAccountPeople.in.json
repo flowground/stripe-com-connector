@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "account": {
+            "required": true,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "relationship": {
+            "required": false,
+            "type": "string"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

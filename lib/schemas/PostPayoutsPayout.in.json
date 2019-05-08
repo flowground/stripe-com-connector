@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "payout": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a payout object. It can be useful for storing additional information about the payout in a structured format.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

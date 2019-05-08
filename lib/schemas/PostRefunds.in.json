@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "type": "integer"
+                },
+                "charge": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "reason": {
+                    "enum": [
+                        "duplicate",
+                        "fraudulent",
+                        "requested_by_customer"
+                    ],
+                    "type": "string"
+                },
+                "refund_application_fee": {
+                    "type": "boolean"
+                },
+                "reverse_transfer": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

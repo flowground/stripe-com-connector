@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "items": {
+                    "description": "List of items to return.",
+                    "items": {
+                        "properties": {
+                            "amount": {
+                                "type": "integer"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "parent": {
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "type": "integer"
+                            },
+                            "type": {
+                                "enum": [
+                                    "discount",
+                                    "shipping",
+                                    "sku",
+                                    "tax"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "title": "return_order_item_specs",
+                        "type": "object"
+                    }
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "value_list": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

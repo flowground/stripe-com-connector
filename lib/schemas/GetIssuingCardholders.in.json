@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "created": {
+            "required": false,
+            "type": "integer"
+        },
+        "email": {
+            "required": false,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "is_default": {
+            "required": false,
+            "type": "boolean"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "phone_number": {
+            "required": false,
+            "type": "string"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "type": "string"
+        },
+        "type": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

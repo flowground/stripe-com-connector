@@ -1,0 +1,117 @@
+{
+    "type": "object",
+    "properties": {
+        "charge": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "evidence": {
+                    "description": "Evidence to upload, to respond to a dispute. Updating any field in the hash will submit all fields in the hash for review. The combined character count of all fields is limited to 150,000.",
+                    "properties": {
+                        "access_activity_log": {
+                            "type": "string"
+                        },
+                        "billing_address": {
+                            "type": "string"
+                        },
+                        "cancellation_policy": {
+                            "type": "string"
+                        },
+                        "cancellation_policy_disclosure": {
+                            "type": "string"
+                        },
+                        "cancellation_rebuttal": {
+                            "type": "string"
+                        },
+                        "customer_communication": {
+                            "type": "string"
+                        },
+                        "customer_email_address": {
+                            "type": "string"
+                        },
+                        "customer_name": {
+                            "type": "string"
+                        },
+                        "customer_purchase_ip": {
+                            "type": "string"
+                        },
+                        "customer_signature": {
+                            "type": "string"
+                        },
+                        "duplicate_charge_documentation": {
+                            "type": "string"
+                        },
+                        "duplicate_charge_explanation": {
+                            "type": "string"
+                        },
+                        "duplicate_charge_id": {
+                            "type": "string"
+                        },
+                        "product_description": {
+                            "type": "string"
+                        },
+                        "receipt": {
+                            "type": "string"
+                        },
+                        "refund_policy": {
+                            "type": "string"
+                        },
+                        "refund_policy_disclosure": {
+                            "type": "string"
+                        },
+                        "refund_refusal_explanation": {
+                            "type": "string"
+                        },
+                        "service_date": {
+                            "type": "string"
+                        },
+                        "service_documentation": {
+                            "type": "string"
+                        },
+                        "shipping_address": {
+                            "type": "string"
+                        },
+                        "shipping_carrier": {
+                            "type": "string"
+                        },
+                        "shipping_date": {
+                            "type": "string"
+                        },
+                        "shipping_documentation": {
+                            "type": "string"
+                        },
+                        "shipping_tracking_number": {
+                            "type": "string"
+                        },
+                        "uncategorized_file": {
+                            "type": "string"
+                        },
+                        "uncategorized_text": {
+                            "type": "string"
+                        }
+                    },
+                    "title": "dispute_evidence_params",
+                    "type": "object"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a dispute object. This can be useful for storing additional information about the dispute in a structured format.",
+                    "type": "object"
+                },
+                "submit": {
+                    "description": "Whether to immediately submit evidence to the bank. If `false`, evidence is staged on the dispute. Staged evidence is visible in the API and Dashboard, and can be submitted to the bank by making another request with this attribute set to `true` (the default).",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "card": {
+            "required": false,
+            "type": "string"
+        },
+        "cardholder": {
+            "required": false,
+            "type": "string"
+        },
+        "created": {
+            "required": false,
+            "type": "integer"
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

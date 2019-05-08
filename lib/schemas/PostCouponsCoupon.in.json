@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "coupon": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a coupon object. It can be useful for storing additional information about the coupon in a structured format.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Name of the coupon displayed to customers on, for instance invoices, or receipts. By default the `id` is shown if `name` is not set.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

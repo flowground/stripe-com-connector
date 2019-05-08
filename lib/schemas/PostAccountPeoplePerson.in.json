@@ -1,0 +1,214 @@
+{
+    "type": "object",
+    "properties": {
+        "person": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "address": {
+                    "description": "The person's address.",
+                    "properties": {
+                        "city": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        },
+                        "line1": {
+                            "type": "string"
+                        },
+                        "line2": {
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        }
+                    },
+                    "title": "address_specs",
+                    "type": "object"
+                },
+                "address_kana": {
+                    "description": "The Kana variation of the person's address (Japan only).",
+                    "properties": {
+                        "city": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        },
+                        "line1": {
+                            "type": "string"
+                        },
+                        "line2": {
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        },
+                        "town": {
+                            "type": "string"
+                        }
+                    },
+                    "title": "japan_address_kana_specs",
+                    "type": "object"
+                },
+                "address_kanji": {
+                    "description": "The Kanji variation of the person's address (Japan only).",
+                    "properties": {
+                        "city": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        },
+                        "line1": {
+                            "type": "string"
+                        },
+                        "line2": {
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        },
+                        "town": {
+                            "type": "string"
+                        }
+                    },
+                    "title": "japan_address_kanji_specs",
+                    "type": "object"
+                },
+                "dob": {
+                    "description": "The person's date of birth.",
+                    "properties": {
+                        "day": {
+                            "type": "integer"
+                        },
+                        "month": {
+                            "type": "integer"
+                        },
+                        "year": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "day",
+                        "month",
+                        "year"
+                    ],
+                    "title": "date_of_birth_specs",
+                    "type": "object"
+                },
+                "email": {
+                    "description": "The person's email address.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "first_name": {
+                    "description": "The person's first name.",
+                    "type": "string"
+                },
+                "first_name_kana": {
+                    "description": "The Kana variation of the person's first name (Japan only).",
+                    "type": "string"
+                },
+                "first_name_kanji": {
+                    "description": "The Kanji variation of the person's first name (Japan only).",
+                    "type": "string"
+                },
+                "gender": {
+                    "description": "The person's gender (International regulations require either \"male\" or \"female\").",
+                    "type": "string"
+                },
+                "id_number": {
+                    "description": "The person's ID number, as appropriate for their country. For example, a social security number in the U.S., social insurance number in Canada, etc. Instead of the number itself, you can also provide a [PII token provided by Stripe.js](https://stripe.com/docs/stripe.js#collecting-pii-data).",
+                    "type": "string"
+                },
+                "last_name": {
+                    "description": "The person's last name.",
+                    "type": "string"
+                },
+                "last_name_kana": {
+                    "description": "The Kana variation of the person's last name (Japan only).",
+                    "type": "string"
+                },
+                "last_name_kanji": {
+                    "description": "The Kanji variation of the person's last name (Japan only).",
+                    "type": "string"
+                },
+                "maiden_name": {
+                    "description": "The person's maiden name.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`.",
+                    "type": "object"
+                },
+                "phone": {
+                    "description": "The person's phone number.",
+                    "type": "string"
+                },
+                "relationship": {
+                    "description": "The relationship that this person has with the account's legal entity.",
+                    "properties": {
+                        "account_opener": {
+                            "type": "boolean"
+                        },
+                        "director": {
+                            "type": "boolean"
+                        },
+                        "owner": {
+                            "type": "boolean"
+                        },
+                        "percent_ownership": {},
+                        "title": {
+                            "type": "string"
+                        }
+                    },
+                    "title": "relationship_specs",
+                    "type": "object"
+                },
+                "ssn_last_4": {
+                    "description": "The last 4 digits of the person's social security number.",
+                    "type": "string"
+                },
+                "verification": {
+                    "description": "The person's verification status.",
+                    "properties": {
+                        "document": {
+                            "properties": {
+                                "back": {
+                                    "type": "string"
+                                },
+                                "front": {
+                                    "type": "string"
+                                }
+                            },
+                            "title": "person_verification_document_specs",
+                            "type": "object"
+                        }
+                    },
+                    "title": "person_verification_specs",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

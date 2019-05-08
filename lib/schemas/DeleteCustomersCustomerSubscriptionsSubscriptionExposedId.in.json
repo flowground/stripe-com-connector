@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "customer": {
+            "required": true,
+            "type": "string"
+        },
+        "subscription_exposed_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "invoice_now": {
+                    "description": "Can be set to `true` if `at_period_end` is not set to `true`. Will generate a final invoice that invoices for any un-invoiced metered usage and new/pending proration invoice items.",
+                    "type": "boolean"
+                },
+                "prorate": {
+                    "description": "Can be set to `true` if `at_period_end` is not set to `true`. Will generate a proration invoice item that credits remaining unused time until the subscription period end.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

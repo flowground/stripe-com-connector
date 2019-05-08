@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "billing_thresholds": {
+                    "description": "Define thresholds at which an invoice will be sent, and the subscription advanced to a new billing period"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.",
+                    "type": "object"
+                },
+                "plan": {
+                    "description": "The identifier of the plan to add to the subscription.",
+                    "type": "string"
+                },
+                "prorate": {
+                    "description": "Flag indicating whether to [prorate](https://stripe.com/docs/billing/subscriptions/prorations) switching plans during a billing cycle.",
+                    "type": "boolean"
+                },
+                "proration_date": {
+                    "description": "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply the same proration that was previewed with the [upcoming invoice](#retrieve_customer_invoice) endpoint.",
+                    "type": "integer"
+                },
+                "quantity": {
+                    "description": "The quantity you'd like to apply to the subscription item you're creating.",
+                    "type": "integer"
+                },
+                "subscription": {
+                    "description": "The identifier of the subscription to modify.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "plan",
+                "subscription"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "Amount of the charge that you will create when authentication completes.",
+                    "type": "integer"
+                },
+                "card": {
+                    "description": "The ID of a card token, or the ID of a card belonging to the given customer.",
+                    "type": "string"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "customer": {
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "return_url": {
+                    "description": "The URL that the cardholder's browser will be returned to when authentication completes.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "amount",
+                "currency",
+                "return_url"
+            ],
+            "type": "object"
+        }
+    }
+}

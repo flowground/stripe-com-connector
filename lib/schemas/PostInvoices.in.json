@@ -1,0 +1,92 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "application_fee_amount": {
+                    "description": "A fee in %s that will be applied to the invoice and transferred to the application owner's Stripe account. The request must be made with an OAuth key or the Stripe-Account header in order to take an application fee. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#invoices).",
+                    "type": "integer"
+                },
+                "auto_advance": {
+                    "description": "Controls whether Stripe will perform [automatic collection](https://stripe.com/docs/billing/invoices/workflow/#auto_advance) of the invoice. When `false`, the invoice's state will not automatically advance without an explicit action.",
+                    "type": "boolean"
+                },
+                "billing": {
+                    "description": "Either `charge_automatically`, or `send_invoice`. When charging automatically, Stripe will attempt to pay this invoice using the default source attached to the customer. When sending an invoice, Stripe will email this invoice to the customer with payment instructions. Defaults to `charge_automatically`.",
+                    "enum": [
+                        "charge_automatically",
+                        "send_invoice"
+                    ],
+                    "type": "string"
+                },
+                "custom_fields": {
+                    "description": "A list of up to 4 custom fields to be displayed on the invoice.",
+                    "items": {
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "value"
+                        ],
+                        "title": "custom_field_params",
+                        "type": "object"
+                    }
+                },
+                "customer": {
+                    "type": "string"
+                },
+                "days_until_due": {
+                    "description": "The number of days from when the invoice is created until it is due. Valid only for invoices where `billing=send_invoice`.",
+                    "type": "integer"
+                },
+                "default_source": {
+                    "description": "ID of the default payment source for the invoice. It must belong to the customer associated with the invoice and be in a chargeable state. If not set, defaults to the subscription's default source, if any, or to the customer's default source.",
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "due_date": {
+                    "description": "The date on which payment for this invoice is due. Valid only for invoices where `billing=send_invoice`.",
+                    "type": "integer"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "footer": {
+                    "description": "Footer to be displayed on the invoice.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "statement_descriptor": {
+                    "description": "Extra information about a charge for the customer's credit card statement. It must contain at least one letter. If not specified and this invoice is part of a subscription, the default `statement_descriptor` will be set to the first subscription item's product's `statement_descriptor`.",
+                    "type": "string"
+                },
+                "subscription": {
+                    "description": "The ID of the subscription to invoice, if any. If not set, the created invoice will include all pending invoice items for the customer. If set, the created invoice will exclude pending invoice items that pertain to other subscriptions. The subscription's billing cycle and regular subscription events won't be affected.",
+                    "type": "string"
+                },
+                "tax_percent": {
+                    "description": "The percent tax rate applied to the invoice, represented as a decimal number.",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "customer"
+            ],
+            "type": "object"
+        }
+    }
+}

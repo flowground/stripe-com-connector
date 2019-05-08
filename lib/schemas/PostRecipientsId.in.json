@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "bank_account": {
+                    "description": "A bank account to attach to the recipient. You can provide either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/stripe-js), or a dictionary containing a user's bank account details, with the options described below."
+                },
+                "card": {
+                    "description": "A U.S. Visa or MasterCard debit card (not prepaid) to attach to the recipient. You can provide either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/stripe-js), or a dictionary containing a user's debit card details, with the options described below. Passing `card` will create a new card, make it the new recipient default card, and delete the old recipient default (if one exists). If you want to add additional debit cards instead of replacing the existing default, use the [card creation API](#create_card). Whenever you attach a card to a recipient, Stripe will automatically validate the debit card."
+                },
+                "default_card": {
+                    "description": "ID of the card to set as the recipient's new default for payouts.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string which you can attach to a `Recipient` object. It is displayed alongside the recipient in the web interface.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The recipient's email address. It is displayed alongside the recipient in the web interface, and can be useful for searching and tracking.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`.",
+                    "type": "object"
+                },
+                "name": {
+                    "description": "The recipient's full, legal name. For type `individual`, should be in the format `First Last`, `First Middle Last`, or `First M Last` (no prefixes or suffixes). For `corporation`, the full, incorporated name.",
+                    "type": "string"
+                },
+                "tax_id": {
+                    "description": "The recipient's tax ID, as a string. For type `individual`, the full SSN; for type `corporation`, the full EIN.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

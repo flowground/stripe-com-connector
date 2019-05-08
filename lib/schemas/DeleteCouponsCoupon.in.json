@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "coupon": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

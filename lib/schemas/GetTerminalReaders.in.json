@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "location": {
+            "required": false,
+            "type": "string"
+        },
+        "operator_account": {
+            "required": false,
+            "type": "string"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

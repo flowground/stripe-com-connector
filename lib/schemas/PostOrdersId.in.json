@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "coupon": {
+                    "description": "A coupon code that represents a discount to be applied to this order. Must be one-time duration and in same currency as the order.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a product object. It can be useful for storing additional information about the order in a structured format.",
+                    "type": "object"
+                },
+                "selected_shipping_method": {
+                    "description": "The shipping method to select for fulfilling this order. If specified, must be one of the `id`s of a shipping method in the `shipping_methods` array. If specified, will overwrite the existing selected shipping method, updating `items` as necessary.",
+                    "type": "string"
+                },
+                "shipping": {
+                    "description": "Tracking information once the order has been fulfilled.",
+                    "properties": {
+                        "carrier": {
+                            "type": "string"
+                        },
+                        "tracking_number": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "carrier",
+                        "tracking_number"
+                    ],
+                    "title": "shipping_tracking_params",
+                    "type": "object"
+                },
+                "status": {
+                    "description": "Current order status. One of `created`, `paid`, `canceled`, `fulfilled`, or `returned`. More detail in the [Orders Guide](https://stripe.com/docs/orders/guide#understanding-order-statuses).",
+                    "enum": [
+                        "canceled",
+                        "created",
+                        "fulfilled",
+                        "paid",
+                        "returned"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,151 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "A positive integer representing how much to charge, in the [smallest currency unit](https://stripe.com/docs/currencies#zero-decimal) (e.g., `100` cents to charge $1.00, or `100` to charge ¥100, a zero-decimal currency). The minimum amount is $0.50 USD or [equivalent in charge currency](https://stripe.com/docs/currencies#minimum-and-maximum-charge-amounts).",
+                    "type": "integer"
+                },
+                "application_fee": {
+                    "type": "integer"
+                },
+                "application_fee_amount": {
+                    "description": "A fee in %s that will be applied to the charge and transferred to the application owner's Stripe account. The request must be made with an OAuth key or the `Stripe-Account` header in order to take an application fee. For more information, see the application fees [documentation](https://stripe.com/docs/connect/direct-charges#collecting-fees).",
+                    "type": "integer"
+                },
+                "capture": {
+                    "description": "Whether to immediately capture the charge. Defaults to `true`. When `false`, the charge issues an authorization (or pre-authorization), and will need to be [captured](#capture_charge) later. Uncaptured charges expire in _seven days_. For more information, see the [authorizing charges and settling later](https://stripe.com/docs/charges#auth-and-capture) documentation.",
+                    "type": "boolean"
+                },
+                "card": {
+                    "description": "A token, like the ones returned by [Stripe.js](https://stripe.com/docs/stripe.js)."
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "customer": {
+                    "description": "The ID of an existing customer that will be charged in this request.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string which you can attach to a `Charge` object. It is displayed when in the web interface alongside the charge. Note that if you use Stripe to send automatic email receipts to your customers, your receipt emails will include the `description` of the charge(s) that they are describing.",
+                    "type": "string"
+                },
+                "destination": {
+                    "properties": {
+                        "account": {
+                            "type": "string"
+                        },
+                        "amount": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "account"
+                    ],
+                    "title": "destination_specs",
+                    "type": "object"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.",
+                    "type": "object"
+                },
+                "on_behalf_of": {
+                    "description": "The Stripe account ID for which these funds are intended. Automatically set if you use the `destination` parameter. For details, see [Creating Separate Charges and Transfers](https://stripe.com/docs/connect/charges-transfers#on-behalf-of).",
+                    "type": "string"
+                },
+                "receipt_email": {
+                    "description": "The email address to which this charge's [receipt](https://stripe.com/docs/dashboard/receipts) will be sent. The receipt will not be sent until the charge is paid, and no receipts will be sent for test mode charges. If this charge is for a [Customer](https://stripe.com/docs/api/customers/object), the email address specified here will override the customer's email address. If `receipt_email` is specified for a charge in live mode, a receipt will be sent regardless of your [email settings](https://dashboard.stripe.com/account/emails).",
+                    "type": "string"
+                },
+                "shipping": {
+                    "description": "Shipping information for the charge. Helps prevent fraud on charges for physical goods.",
+                    "properties": {
+                        "address": {
+                            "properties": {
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "line1"
+                            ],
+                            "title": "address",
+                            "type": "object"
+                        },
+                        "carrier": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "tracking_number": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "address",
+                        "name"
+                    ],
+                    "title": "shipping",
+                    "type": "object"
+                },
+                "source": {
+                    "description": "A payment source to be charged. This can be the ID of a [card](https://stripe.com/docs/api#cards) (i.e., credit or debit card), a [bank account](https://stripe.com/docs/api#bank_accounts), a [source](https://stripe.com/docs/api#sources), a [token](https://stripe.com/docs/api#tokens), or a [connected account](https://stripe.com/docs/connect/account-debits#charging-a-connected-account). For certain sources---namely, [cards](https://stripe.com/docs/api#cards), [bank accounts](https://stripe.com/docs/api#bank_accounts), and attached [sources](https://stripe.com/docs/api#sources)---you must also pass the ID of the associated customer."
+                },
+                "statement_descriptor": {
+                    "description": "An arbitrary string to be displayed on your customer's credit card statement. This can be up to _22 characters_. As an example, if your website is `RunClub` and the item you're charging for is a race ticket, you might want to specify a `statement_descriptor` of `RunClub 5K race ticket`. The statement description must contain at least one letter, must not contain `<>\"'` characters, and will appear on your customer's statement in capital letters. Non-ASCII characters are automatically stripped. While most banks and card issuers display this information consistently, some might display it incorrectly or not at all.",
+                    "type": "string"
+                },
+                "transfer_data": {
+                    "description": "An optional dictionary including the account to automatically transfer to as part of a destination charge. [See the Connect documentation](https://stripe.com/docs/connect/destination-charges) for details.",
+                    "properties": {
+                        "amount": {
+                            "type": "integer"
+                        },
+                        "destination": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "destination"
+                    ],
+                    "title": "transfer_data_specs",
+                    "type": "object"
+                },
+                "transfer_group": {
+                    "description": "A string that identifies this transaction as part of a group. For details, see [Grouping transactions](https://stripe.com/docs/connect/charges-transfers#grouping-transactions).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

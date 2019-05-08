@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "account": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "redirect_url": {
+                    "description": "Where to redirect the user after they log out of their dashboard.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

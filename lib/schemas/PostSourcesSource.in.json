@@ -1,0 +1,163 @@
+{
+    "type": "object",
+    "properties": {
+        "source": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "is_permitted_source_usage": {
+                    "type": "boolean"
+                },
+                "mandate": {
+                    "description": "Information about a mandate possibility attached to a source object (generally for bank debits) as well as its acceptance status.",
+                    "properties": {
+                        "acceptance": {
+                            "properties": {
+                                "date": {
+                                    "type": "integer"
+                                },
+                                "ip": {
+                                    "type": "string"
+                                },
+                                "offline": {
+                                    "properties": {
+                                        "contact_email": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "contact_email"
+                                    ],
+                                    "title": "mandate_offline_acceptance_params",
+                                    "type": "object"
+                                },
+                                "online": {
+                                    "properties": {
+                                        "date": {
+                                            "type": "integer"
+                                        },
+                                        "ip": {
+                                            "type": "string"
+                                        },
+                                        "user_agent": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "date",
+                                        "ip",
+                                        "user_agent"
+                                    ],
+                                    "title": "mandate_online_acceptance_params",
+                                    "type": "object"
+                                },
+                                "status": {
+                                    "enum": [
+                                        "accepted",
+                                        "pending",
+                                        "refused",
+                                        "revoked"
+                                    ],
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "enum": [
+                                        "offline",
+                                        "online"
+                                    ],
+                                    "type": "string"
+                                },
+                                "user_agent": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ],
+                            "title": "mandate_acceptance_params",
+                            "type": "object"
+                        },
+                        "amount": {},
+                        "currency": {
+                            "type": "string"
+                        },
+                        "interval": {
+                            "enum": [
+                                "one_time",
+                                "scheduled",
+                                "variable"
+                            ],
+                            "type": "string"
+                        },
+                        "notification_method": {
+                            "enum": [
+                                "deprecated_none",
+                                "email",
+                                "manual",
+                                "none",
+                                "stripe_email"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "title": "mandate_params",
+                    "type": "object"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a source object. It can be useful for storing additional information about the source in a structured format.",
+                    "type": "object"
+                },
+                "owner": {
+                    "description": "Information about the owner of the payment instrument that may be used or required by particular source types.",
+                    "properties": {
+                        "address": {
+                            "properties": {
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            },
+                            "title": "source_address",
+                            "type": "object"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        }
+                    },
+                    "title": "owner",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

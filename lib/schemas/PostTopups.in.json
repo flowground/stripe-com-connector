@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "A positive integer representing how much to transfer.",
+                    "type": "integer"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string attached to the object. Often useful for displaying to users.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.",
+                    "type": "object"
+                },
+                "source": {
+                    "description": "The ID of a source to transfer funds from. For most users, this should be left unspecified which will use the bank account that was set up in the dashboard for the specified currency. In test mode, this can be a test bank token (see [Testing Top-ups](https://stripe.com/docs/connect/testing#testing-top-ups)).",
+                    "type": "string"
+                },
+                "statement_descriptor": {
+                    "description": "Extra information about a top-up for the source's bank statement. Limited to 15 ASCII characters.",
+                    "type": "string"
+                },
+                "transfer_group": {
+                    "description": "A string that identifies this top-up as part of a group.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "amount",
+                "currency"
+            ],
+            "type": "object"
+        }
+    }
+}

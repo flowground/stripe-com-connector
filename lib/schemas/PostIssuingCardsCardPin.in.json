@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "card": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "pin": {
+                    "description": "The new desired PIN",
+                    "type": "string"
+                },
+                "verification": {
+                    "description": "The id of the `Verification` that was sent and the code entered by the cardholder",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "one_time_code": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "one_time_code"
+                    ],
+                    "title": "verification_params",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "pin",
+                "verification"
+            ],
+            "type": "object"
+        }
+    }
+}

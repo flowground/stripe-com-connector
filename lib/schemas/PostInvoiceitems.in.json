@@ -1,0 +1,78 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "The integer amount in **%s** of the charge to be applied to the upcoming invoice. If you want to apply a credit to the customer's account, pass a negative amount.",
+                    "type": "integer"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "customer": {
+                    "description": "The ID of the customer who will be billed when this invoice item is billed.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string which you can attach to the invoice item. The description is displayed in the invoice for easy tracking.",
+                    "type": "string"
+                },
+                "discountable": {
+                    "description": "Controls whether discounts apply to this invoice item. Defaults to false for prorations or negative invoice items, and true for all other invoice items.",
+                    "type": "boolean"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "invoice": {
+                    "description": "The ID of an existing invoice to add this invoice item to. When left blank, the invoice item will be added to the next upcoming scheduled invoice. This is useful when adding invoice items in response to an invoice.created webhook. You can only add invoice items to draft invoices.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to an invoice item object. It can be useful for storing additional information about the invoice item in a structured format.",
+                    "type": "object"
+                },
+                "period": {
+                    "description": "The period associated with this invoice item.",
+                    "properties": {
+                        "end": {
+                            "type": "integer"
+                        },
+                        "start": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "end",
+                        "start"
+                    ],
+                    "title": "period",
+                    "type": "object"
+                },
+                "quantity": {
+                    "description": "Non-negative integer. The quantity of units for the invoice item.",
+                    "type": "integer"
+                },
+                "subscription": {
+                    "description": "The ID of a subscription to add this invoice item to. When left blank, the invoice item will be be added to the next upcoming scheduled invoice. When set, scheduled invoices for subscriptions other than the specified subscription will ignore the invoice item. Use this when you want to express that an invoice item has been accrued within the context of a particular subscription.",
+                    "type": "string"
+                },
+                "unit_amount": {
+                    "description": "The integer unit amount in **%s** of the charge to be applied to the upcoming invoice. This unit_amount will be multiplied by the quantity to get the full amount. If you want to apply a credit to the customer's account, pass a negative unit_amount.",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "currency",
+                "customer"
+            ],
+            "type": "object"
+        }
+    }
+}

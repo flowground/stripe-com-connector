@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "customer": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "invoiceitem": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

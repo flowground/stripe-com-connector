@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "created": {
+            "required": false,
+            "type": "integer"
+        },
+        "customer": {
+            "required": false,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "invoice": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "pending": {
+            "required": false,
+            "type": "boolean"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

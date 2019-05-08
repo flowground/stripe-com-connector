@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "canceled_at": {
+            "required": false,
+            "type": "integer"
+        },
+        "completed_at": {
+            "required": false,
+            "type": "integer"
+        },
+        "created": {
+            "required": false,
+            "type": "integer"
+        },
+        "customer": {
+            "required": false,
+            "type": "string"
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "released_at": {
+            "required": false,
+            "type": "integer"
+        },
+        "scheduled": {
+            "required": false,
+            "type": "boolean"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

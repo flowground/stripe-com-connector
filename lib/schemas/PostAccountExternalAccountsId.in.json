@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "account_holder_name": {
+                    "description": "The name of the person or business that owns the bank account.",
+                    "type": "string"
+                },
+                "account_holder_type": {
+                    "description": "The type of entity that holds the account. This can be either `individual` or `company`.",
+                    "enum": [
+                        "",
+                        "company",
+                        "individual"
+                    ],
+                    "type": "string"
+                },
+                "address_city": {
+                    "description": "City/District/Suburb/Town/Village.",
+                    "type": "string"
+                },
+                "address_country": {
+                    "description": "Billing address country, if provided when creating card.",
+                    "type": "string"
+                },
+                "address_line1": {
+                    "description": "Address line 1 (Street address/PO Box/Company name).",
+                    "type": "string"
+                },
+                "address_line2": {
+                    "description": "Address line 2 (Apartment/Suite/Unit/Building).",
+                    "type": "string"
+                },
+                "address_state": {
+                    "description": "State/County/Province/Region.",
+                    "type": "string"
+                },
+                "address_zip": {
+                    "description": "ZIP or postal code.",
+                    "type": "string"
+                },
+                "default_for_currency": {
+                    "description": "When set to true, this becomes the default external account for its currency.",
+                    "type": "boolean"
+                },
+                "exp_month": {
+                    "description": "Two digit number representing the card’s expiration month.",
+                    "type": "string"
+                },
+                "exp_year": {
+                    "description": "Four digit number representing the card’s expiration year.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "name": {
+                    "description": "Cardholder name.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

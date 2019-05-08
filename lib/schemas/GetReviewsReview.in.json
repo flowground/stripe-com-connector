@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "review": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

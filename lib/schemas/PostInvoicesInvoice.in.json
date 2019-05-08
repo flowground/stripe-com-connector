@@ -1,0 +1,77 @@
+{
+    "type": "object",
+    "properties": {
+        "invoice": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "application_fee_amount": {
+                    "description": "A fee in %s that will be applied to the invoice and transferred to the application owner's Stripe account. The request must be made with an OAuth key or the Stripe-Account header in order to take an application fee. For more information, see the application fees [documentation](https://stripe.com/docs/connect/subscriptions#invoices).",
+                    "type": "integer"
+                },
+                "auto_advance": {
+                    "description": "Controls whether Stripe will perform [automatic collection](https://stripe.com/docs/billing/invoices/workflow/#auto_advance) of the invoice.",
+                    "type": "boolean"
+                },
+                "custom_fields": {
+                    "description": "A list of up to 4 custom fields to be displayed on the invoice. If a value for `custom_fields` is specified, the list specified will replace the existing custom field list on this invoice.",
+                    "items": {
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "value"
+                        ],
+                        "title": "custom_field_params",
+                        "type": "object"
+                    }
+                },
+                "days_until_due": {
+                    "description": "The number of days from which the invoice is created until it is due. Only valid for invoices where `billing=send_invoice`. This field can only be updated on `draft` invoices.",
+                    "type": "integer"
+                },
+                "default_source": {
+                    "description": "ID of the default payment source for the invoice. It must belong to the customer associated with the invoice and be in a chargeable state. If not set, defaults to the subscription's default source, if any, or to the customer's default source.",
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "due_date": {
+                    "description": "The date on which payment for this invoice is due. Only valid for invoices where `billing=send_invoice`. This field can only be updated on `draft` invoices.",
+                    "type": "integer"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "footer": {
+                    "description": "Footer to be displayed on the invoice.",
+                    "type": "string"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "statement_descriptor": {
+                    "description": "Extra information about a charge for the customer's credit card statement. It must contain at least one letter. If not specified and this invoice is part of a subscription, the default `statement_descriptor` will be set to the first subscription item's product's `statement_descriptor`.",
+                    "type": "string"
+                },
+                "tax_percent": {
+                    "description": "The percent tax rate applied to the invoice, represented as a non-negative decimal number (with at most four decimal places) between 0 and 100. To unset a previously-set value, pass an empty string. This field can be updated only on `draft` invoices."
+                }
+            },
+            "type": "object"
+        }
+    }
+}

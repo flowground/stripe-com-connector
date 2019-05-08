@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "invoiceitem": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "The integer amount in **%s** of the charge to be applied to the upcoming invoice. If you want to apply a credit to the customer's account, pass a negative amount.",
+                    "type": "integer"
+                },
+                "description": {
+                    "description": "An arbitrary string which you can attach to the invoice item. The description is displayed in the invoice for easy tracking.",
+                    "type": "string"
+                },
+                "discountable": {
+                    "description": "Controls whether discounts apply to this invoice item. Defaults to false for prorations or negative invoice items, and true for all other invoice items. Cannot be set to true for prorations.",
+                    "type": "boolean"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to an invoice item object. It can be useful for storing additional information about the invoice item in a structured format.",
+                    "type": "object"
+                },
+                "period": {
+                    "description": "The period associated with this invoice item.",
+                    "properties": {
+                        "end": {
+                            "type": "integer"
+                        },
+                        "start": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "end",
+                        "start"
+                    ],
+                    "title": "period",
+                    "type": "object"
+                },
+                "quantity": {
+                    "description": "Non-negative integer. The quantity of units for the invoice item.",
+                    "type": "integer"
+                },
+                "unit_amount": {
+                    "description": "The integer unit amount in **%s** of the charge to be applied to the upcoming invoice. This unit_amount will be multiplied by the quantity to get the full amount. If you want to apply a credit to the customer's account, pass a negative unit_amount.",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

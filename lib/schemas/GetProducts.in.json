@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "active": {
+            "required": false,
+            "type": "boolean"
+        },
+        "created": {
+            "required": false,
+            "type": "integer"
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "ids": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "shippable": {
+            "required": false,
+            "type": "boolean"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        },
+        "type": {
+            "required": false,
+            "type": "string"
+        },
+        "url": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

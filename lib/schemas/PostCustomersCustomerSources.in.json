@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "customer": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "alipay_account": {
+                    "description": "A token returned by [Stripe.js](https://stripe.com/docs/stripe.js) representing the user’s Alipay account details."
+                },
+                "bank_account": {
+                    "description": "Either a token, like the ones returned by [Stripe.js](https://stripe.com/docs/stripe.js), or a dictionary containing a user's bank account details."
+                },
+                "card": {
+                    "description": "A token, like the ones returned by [Stripe.js](https://stripe.com/docs/stripe.js)."
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a card object. It can be useful for storing additional information about the card in a structured format.",
+                    "type": "object"
+                },
+                "source": {
+                    "description": "Please refer to full [documentation](https://stripe.com/docs/api) instead."
+                }
+            },
+            "type": "object"
+        }
+    }
+}

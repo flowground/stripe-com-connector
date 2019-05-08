@@ -1,0 +1,229 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "cancel_url": {
+                    "description": "The URL the customer will be directed to if they decide to go back to your website.",
+                    "type": "string"
+                },
+                "client_reference_id": {
+                    "description": "The reference to identify a payment made with Checkout. This reference will be echoed back in Checkout webhooks.",
+                    "type": "string"
+                },
+                "customer_email": {
+                    "description": "The email address used to create the customer object. If you already know your customer's email address, use this attribute to prefill it on Checkout.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "line_items": {
+                    "description": "A list of items your customer is purchasing.",
+                    "items": {
+                        "properties": {
+                            "amount": {
+                                "type": "integer"
+                            },
+                            "currency": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "images": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "amount",
+                            "currency",
+                            "name",
+                            "quantity"
+                        ],
+                        "title": "line_item_params",
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "locale": {
+                    "description": "The IETF language tag of the locale Checkout is displayed in. If blank or `auto`, the browser's locale is used. Supported values are `auto`, `da`, `de`, `en`, `es`, `fi`, `fr`, `it`, `ja`, `nb`, `nl`, `pl`, `pt`, `sv`, or `zh`.",
+                    "enum": [
+                        "auto",
+                        "da",
+                        "de",
+                        "en",
+                        "es",
+                        "fi",
+                        "fr",
+                        "it",
+                        "ja",
+                        "nb",
+                        "nl",
+                        "pl",
+                        "pt",
+                        "sv",
+                        "zh"
+                    ],
+                    "type": "string"
+                },
+                "payment_intent_data": {
+                    "description": "A subset of parameters to be passed to PaymentIntent creation.",
+                    "properties": {
+                        "application_fee_amount": {
+                            "type": "integer"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "metadata": {
+                            "type": "object"
+                        },
+                        "on_behalf_of": {
+                            "type": "string"
+                        },
+                        "receipt_email": {
+                            "type": "string"
+                        },
+                        "shipping": {
+                            "properties": {
+                                "address": {
+                                    "properties": {
+                                        "city": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        },
+                                        "line1": {
+                                            "type": "string"
+                                        },
+                                        "line2": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "line1"
+                                    ],
+                                    "title": "address",
+                                    "type": "object"
+                                },
+                                "carrier": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "tracking_number": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "address",
+                                "name"
+                            ],
+                            "title": "shipping",
+                            "type": "object"
+                        },
+                        "statement_descriptor": {
+                            "type": "string"
+                        },
+                        "transfer_data": {
+                            "properties": {
+                                "destination": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "destination"
+                            ],
+                            "title": "transfer_data_params",
+                            "type": "object"
+                        }
+                    },
+                    "title": "payment_intent_data_params",
+                    "type": "object"
+                },
+                "payment_method_types": {
+                    "description": "The list of payment method types (e.g. card) that this Checkout Session is allowed to use.",
+                    "items": {
+                        "enum": [
+                            "card"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "subscription_data": {
+                    "description": "A subset of parameters to be passed to subscription creation.",
+                    "properties": {
+                        "items": {
+                            "items": {
+                                "properties": {
+                                    "plan": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "plan"
+                                ],
+                                "title": "subscription_data_item_param",
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "metadata": {
+                            "type": "object"
+                        },
+                        "trial_end": {
+                            "type": "integer"
+                        },
+                        "trial_period_days": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "items"
+                    ],
+                    "title": "subscription_data_params",
+                    "type": "object"
+                },
+                "success_url": {
+                    "description": "The URL the customer will be directed to after a successful payment.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cancel_url",
+                "payment_method_types",
+                "success_url"
+            ],
+            "type": "object"
+        }
+    }
+}

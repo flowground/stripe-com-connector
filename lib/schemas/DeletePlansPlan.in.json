@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "plan": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

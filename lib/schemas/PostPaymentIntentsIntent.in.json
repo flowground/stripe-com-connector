@@ -1,0 +1,118 @@
+{
+    "type": "object",
+    "properties": {
+        "intent": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "Amount intended to be collected by this PaymentIntent",
+                    "type": "integer"
+                },
+                "application_fee_amount": {
+                    "description": "The amount of the application fee (if any) for the resulting payment. See the PaymentIntents [Connect usage guide](https://stripe.com/docs/payments/payment-intents/usage#connect) for details.",
+                    "type": "integer"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "customer": {
+                    "description": "ID of the customer this PaymentIntent is for if one exists.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string attached to the object. Often useful for displaying to users.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.",
+                    "type": "object"
+                },
+                "payment_method_types": {
+                    "description": "The list of payment method types (e.g. card) that this PaymentIntent is allowed to use.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "receipt_email": {
+                    "description": "Email address that the receipt for the resulting payment will be sent to.",
+                    "type": "string"
+                },
+                "save_payment_method": {
+                    "description": "Set to `true` to save this PaymentIntent's payment method to the associated Customer, if the payment method is not already attached. This parameter only applies to the payment method passed in the same request or the current payment method attached to the PaymentIntent and must be specified again if a new payment method is added.",
+                    "type": "boolean"
+                },
+                "shipping": {
+                    "description": "Shipping information for this PaymentIntent.",
+                    "properties": {
+                        "address": {
+                            "properties": {
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "line1"
+                            ],
+                            "title": "address",
+                            "type": "object"
+                        },
+                        "carrier": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "tracking_number": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "address",
+                        "name"
+                    ],
+                    "title": "shipping",
+                    "type": "object"
+                },
+                "source": {
+                    "description": "ID of the Source object to attach to this PaymentIntent.",
+                    "type": "string"
+                },
+                "transfer_group": {
+                    "description": "A string that identifies the resulting payment as part of a group. `transfer_group` may only be provided if it has not been set. See the PaymentIntents [Connect usage guide](https://stripe.com/docs/payments/payment-intents/usage#connect) for details.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "charge": {
+            "required": true,
+            "type": "string"
+        },
+        "refund": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

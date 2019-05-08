@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "charge": {
+            "required": true,
+            "type": "string"
+        },
+        "refund": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "type": "object",
+    "properties": {
+        "intent": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "client_secret": {
+                    "description": "The client secret of the PaymentIntent.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "payment_method_types": {
+                    "description": "The list of payment method types (e.g. card) that this PaymentIntent is allowed to use.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "receipt_email": {
+                    "description": "Email address that the receipt for the resulting payment will be sent to.",
+                    "type": "string"
+                },
+                "return_url": {
+                    "description": "The URL to redirect your customer back to after they authenticate or cancel their payment on the payment method's app or site.\nIf you'd prefer to redirect to a mobile application, you can alternatively supply an application URI scheme.\nThis parameter is only used for cards and other redirect-based payment methods.",
+                    "type": "string"
+                },
+                "save_payment_method": {
+                    "description": "Set to `true` to save this PaymentIntent's payment method to the associated Customer, if the payment method is not already attached. This parameter only applies to the payment method passed in the same request or the current payment method attached to the PaymentIntent and must be specified again if a new payment method is added.",
+                    "type": "boolean"
+                },
+                "shipping": {
+                    "description": "Shipping information for this PaymentIntent.",
+                    "properties": {
+                        "address": {
+                            "properties": {
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "line1"
+                            ],
+                            "title": "address",
+                            "type": "object"
+                        },
+                        "carrier": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "tracking_number": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "address",
+                        "name"
+                    ],
+                    "title": "shipping",
+                    "type": "object"
+                },
+                "source": {
+                    "description": "ID of the Source object to attach to this PaymentIntent.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

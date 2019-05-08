@@ -1,0 +1,78 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "Amount to dispute, defaults to full value, given in the currency the transaction was made in.",
+                    "type": "integer"
+                },
+                "disputed_transaction": {
+                    "description": "The ID of the issuing transaction to create a dispute for.",
+                    "type": "string"
+                },
+                "evidence": {
+                    "description": "A hash containing all the evidence related to the dispute. This should have a single key, equal to the provided `reason`, mapping to an appropriate evidence object.",
+                    "properties": {
+                        "fraudulent": {
+                            "properties": {
+                                "dispute_explanation": {
+                                    "type": "string"
+                                },
+                                "uncategorized_file": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "dispute_explanation"
+                            ],
+                            "title": "fraudulent",
+                            "type": "object"
+                        },
+                        "other": {
+                            "properties": {
+                                "dispute_explanation": {
+                                    "type": "string"
+                                },
+                                "uncategorized_file": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "dispute_explanation"
+                            ],
+                            "title": "other",
+                            "type": "object"
+                        }
+                    },
+                    "title": "disputes_evidence",
+                    "type": "object"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`.",
+                    "type": "object"
+                },
+                "reason": {
+                    "description": "The reason for the dispute, which can be chosen out of a set of valid values.",
+                    "enum": [
+                        "fraudulent",
+                        "other"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "disputed_transaction",
+                "reason"
+            ],
+            "type": "object"
+        }
+    }
+}

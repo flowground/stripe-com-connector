@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "ending_before": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "source": {
+            "required": true,
+            "type": "string"
+        },
+        "starting_after": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

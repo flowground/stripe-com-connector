@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "account": {
+                    "description": "The identifier of the account to create an account link for.",
+                    "type": "string"
+                },
+                "collect": {
+                    "description": "The information the platform wants to collect from users up-front. Possible values are `currently_due` and `eventually_due`.",
+                    "enum": [
+                        "currently_due",
+                        "eventually_due"
+                    ],
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "failure_url": {
+                    "description": "The URL that the user will be redirected to if the account link is no longer valid.",
+                    "type": "string"
+                },
+                "success_url": {
+                    "description": "The URL that the user will be redirected to upon completing the linked flow successfully.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of account link the user is requesting. Possible values are `custom_account_verification` or `custom_account_update`.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "account",
+                "failure_url",
+                "success_url",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}

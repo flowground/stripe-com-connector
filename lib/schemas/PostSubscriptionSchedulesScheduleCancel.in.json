@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "schedule": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "invoice_now": {
+                    "description": "If the subscription schedule is `active`, indicates whether or not to generate a final invoice that contains any un-invoiced metered usage and new/pending proration invoice items. Defaults to `true`.",
+                    "type": "boolean"
+                },
+                "prorate": {
+                    "description": "If the subscription schedule is `active`, indicates if the cancellation should be prorated. Defaults to `true`.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "customer": {
+            "required": true,
+            "type": "string"
+        },
+        "subscription_exposed_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

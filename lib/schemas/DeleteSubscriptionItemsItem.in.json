@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "item": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "clear_usage": {
+                    "description": "Delete all usage for the given subscription item. Allowed only when the current plan's `usage_type` is `metered`.",
+                    "type": "boolean"
+                },
+                "prorate": {
+                    "description": "Flag indicating whether to [prorate](https://stripe.com/docs/billing/subscriptions/prorations) switching plans during a billing cycle.",
+                    "type": "boolean"
+                },
+                "proration_date": {
+                    "description": "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply the same proration that was previewed with the [upcoming invoice](#retrieve_customer_invoice) endpoint.",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

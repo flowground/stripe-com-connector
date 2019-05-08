@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "account": {
+                    "description": "The identifier of the account to create a login link for.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "redirect_url": {
+                    "description": "Where to redirect the user after they log out of their dashboard.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "account"
+            ],
+            "type": "object"
+        }
+    }
+}

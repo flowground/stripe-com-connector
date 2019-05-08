@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "subscription_exposed_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

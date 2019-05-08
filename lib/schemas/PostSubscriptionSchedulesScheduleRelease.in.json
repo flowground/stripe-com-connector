@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "schedule": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "preserve_cancel_date": {
+                    "description": "Keep any cancellation on the subscription that the schedule has set",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

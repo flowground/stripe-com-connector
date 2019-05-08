@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "required": false,
+            "type": "array",
+            "items": {}
+        },
+        "webhook_endpoint": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "type": "object",
+    "properties": {
+        "charge": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "customer": {
+                    "description": "The ID of an existing customer that will be associated with this request. This field may only be updated if there is no existing associated customer with this charge.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string which you can attach to a charge object. It is displayed when in the web interface alongside the charge. Note that if you use Stripe to send automatic email receipts to your customers, your receipt emails will include the `description` of the charge(s) that they are describing.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "fraud_details": {
+                    "description": "A set of key-value pairs you can attach to a charge giving information about its riskiness. If you believe a charge is fraudulent, include a `user_report` key with a value of `fraudulent`. If you believe a charge is safe, include a `user_report` key with a value of `safe`. Note that you must refund a charge before setting the `user_report` to `fraudulent`. Stripe will use the information you send to improve our fraud detection algorithms.",
+                    "properties": {
+                        "user_report": {
+                            "enum": [
+                                "fraudulent",
+                                "safe"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "user_report"
+                    ],
+                    "title": "fraud_details",
+                    "type": "object"
+                },
+                "metadata": {
+                    "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to `metadata`.",
+                    "type": "object"
+                },
+                "receipt_email": {
+                    "description": "This is the email address that the receipt for this charge will be sent to. If this field is updated, then a new email receipt will be sent to the updated address.",
+                    "type": "string"
+                },
+                "shipping": {
+                    "description": "Shipping information for the charge. Helps prevent fraud on charges for physical goods.",
+                    "properties": {
+                        "address": {
+                            "properties": {
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "line1": {
+                                    "type": "string"
+                                },
+                                "line2": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "line1"
+                            ],
+                            "title": "address",
+                            "type": "object"
+                        },
+                        "carrier": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "tracking_number": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "address",
+                        "name"
+                    ],
+                    "title": "shipping",
+                    "type": "object"
+                },
+                "transfer_group": {
+                    "description": "A string that identifies this transaction as part of a group. `transfer_group` may only be provided if it has not been set. See the [Connect documentation](https://stripe.com/docs/connect/charges-transfers#grouping-transactions) for details.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

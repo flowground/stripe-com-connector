@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "card": {
+                    "description": "The `Card` for which a verification is requested",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "scope": {
+                    "description": "The scope of the verification (one of card_pin_retrieve, card_pin_update)",
+                    "enum": [
+                        "card_pin_retrieve",
+                        "card_pin_update"
+                    ],
+                    "type": "string"
+                },
+                "verification_method": {
+                    "description": "The method used to send the cardholder the verification (one of email, sms)",
+                    "enum": [
+                        "email",
+                        "sms"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "card",
+                "scope",
+                "verification_method"
+            ],
+            "type": "object"
+        }
+    }
+}

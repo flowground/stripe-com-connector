@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "account": {
+                    "description": "The identifier of the account to be deleted. If none is provided, will default to the account of the API key.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

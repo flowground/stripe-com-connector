@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "A positive integer in cents representing how much to payout.",
+                    "type": "integer"
+                },
+                "currency": {
+                    "description": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "An arbitrary string attached to the object. Often useful for displaying to users.",
+                    "type": "string"
+                },
+                "destination": {
+                    "description": "The ID of a bank account or a card to send the payout to. If no destination is supplied, the default external account for the specified currency will be used.",
+                    "type": "string"
+                },
+                "expand": {
+                    "description": "Specifies which fields in the response should be expanded.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "metadata": {
+                    "description": "A set of key-value pairs that you can attach to a payout object. It can be useful for storing additional information about the payout in a structured format.",
+                    "type": "object"
+                },
+                "method": {
+                    "description": "The method used to send this payout, which can be `standard` or `instant`. `instant` is only supported for payouts to debit cards. (See [Instant payouts for marketplaces for more information](https://stripe.com/blog/instant-payouts-for-marketplaces).)",
+                    "enum": [
+                        "instant",
+                        "standard"
+                    ],
+                    "type": "string"
+                },
+                "source_type": {
+                    "description": "The source balance to draw this payout from. Balances for different payment sources are kept separately. You can find the amounts with the balances API. Valid options are: **alipay_account**, **bank_account**, and **card**.",
+                    "enum": [
+                        "alipay_account",
+                        "bank_account",
+                        "bitcoin_receiver",
+                        "card",
+                        "financing",
+                        "source",
+                        "stripe_account"
+                    ],
+                    "type": "string"
+                },
+                "statement_descriptor": {
+                    "description": "A string to be displayed on the recipient's bank or card statement. This may be at most 22 characters. Attempting to use a `statement_descriptor` longer than 22 characters will return an error. Note: Most banks will truncate this information and/or display it inconsistently. Some may not display it at all.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "amount",
+                "currency"
+            ],
+            "type": "object"
+        }
+    }
+}
